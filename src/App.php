@@ -28,8 +28,8 @@ class App extends Application
         // Customize error template by error code by create template: pages/error/{404,500,..}.twig
         $this->error(function (\Exception $e) {
             $template = 'pages/error/default.twig';
-            $code = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
             $exception = FlattenException::create($e);
+            $code = $exception->getStatusCode();
             $handler = new ExceptionHandler($this['debug']);
 
             if ($this->getTwig()->getLoader()->exists("pages/error/$code.twig")) {
