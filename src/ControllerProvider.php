@@ -21,6 +21,8 @@ class ControllerProvider implements ControllerProviderInterface
         $route = $app['controllers_factory'];
         
         $route->get('/', 'ctr.home:get')->bind('name');
+        $route->get('/login', 'ctr.user:getLogin')->bind('user-login');
+        $route->get('/logout', 'ctr.user:getLogout')->bind('user-logout');
 
         return $route;
     }
