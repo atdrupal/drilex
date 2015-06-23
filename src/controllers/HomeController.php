@@ -17,7 +17,7 @@ class HomeController
     
     public function get()
     {
-        return $this->app->getTwig()->render('page/index.twig', [
+        return $this->app->getTwig()->render('pages/index.twig', [
             'content' => 'Welcome to <strong>Project Name</strong>!',
         ]);
     }
