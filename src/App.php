@@ -23,12 +23,12 @@ class App extends Application
     public function boot()
     {
         parent::boot();
-        
+
         // Custom error handler page, it's must be placed before any route definition.
         // Customize error template by error code by create template: pages/error/{404,500,..}.twig
         $this->error(function (\Exception $e) {
             $template = 'pages/error/default.twig';
-            $code = $e->getStatusCode();
+            $code = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
             $exception = FlattenException::create($e);
             $handler = new ExceptionHandler($this['debug']);
 
