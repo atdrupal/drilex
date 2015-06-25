@@ -6,6 +6,7 @@ use Silex\Application;
 use vendor_name\project_name\traits\GetSetTrait;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler;
+use Symfony\Component\HttpFoundation\Request;
 
 class App extends Application
 {
@@ -23,6 +24,14 @@ class App extends Application
     public function boot()
     {
         parent::boot();
+        
+        // Convert json body to array structure
+        $this->before(function (Request $request) {
+            if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+                $data = json_decode($request->getContent(), true);
+                $request->request->replace(is_array($data) ? $data : array());
+            }
+        });
 
         // Custom error handler page, it's must be placed before any route definition.
         // Customize error template by error code by create template: pages/error/{404,500,..}.twig
