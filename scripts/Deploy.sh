@@ -55,12 +55,18 @@ if [ $DEPLOY_ERROR -ge 1 ];   then exit 1; fi
 phpenv local 5.5
 
 # Install requirements
-composer install --prefer-source --no-interaction
+composer install --prefer-source --no-interaction || {
+	echo "Composer install failed.";
+  exit 1;
+}
 
 # Sync built source code to target
 # ---------------------
 # Sync source code
-rsync -Pav --delete ${CLONE}/ $TARGET_USER@$TARGET_HOST:$TARGET_DIR/ --exclude=files/ --exclude=.git/;
+rsync -Pav --delete ${CLONE}/ $TARGET_USER@$TARGET_HOST:$TARGET_DIR/ --exclude=files/ --exclude=.git/ || {
+	echo "rsync failed!";
+  exit 1;
+}
 
 # Run orm update command on remote server
 $SSH "cd $TARGET_DIR; php cli.php orm:schema-tool:update --force"
