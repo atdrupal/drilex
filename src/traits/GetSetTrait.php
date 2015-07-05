@@ -10,6 +10,7 @@ use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\EntityManager;
+use JMS\Serializer\SerializerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Console\Application as Console;
@@ -65,7 +66,7 @@ trait GetSetTrait
         $this['cache'] = $cache;
         return $this;
     }
-    
+
     /**
      * @return EventDispatcherInterface
      */
@@ -86,7 +87,7 @@ trait GetSetTrait
         }
         return $this['console'];
     }
-    
+
     /**
      * @return \Twig_Environment
      */
@@ -159,6 +160,14 @@ trait GetSetTrait
     public function getQueueConsumer()
     {
         return $this['bernard.consumer'];
+    }
+
+    /**
+     * @return SerializerInterface
+     */
+    public function getSerializer()
+    {
+        return $this['serializer'];
     }
 
 }

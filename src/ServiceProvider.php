@@ -16,6 +16,7 @@ use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use vendor_name\project_name\service_providers\BernardServiceProvider;
 use vendor_name\project_name\service_providers\DoctrineOrmServiceProvider;
+use vendor_name\project_name\service_providers\JmsSerializerServiceProvider;
 
 class ServiceProvider implements ServiceProviderInterface, BootableProviderInterface, EventListenerProviderInterface
 {
@@ -32,7 +33,7 @@ class ServiceProvider implements ServiceProviderInterface, BootableProviderInter
     public function register(Container $c)
     {
         $c->register(new TwigServiceProvider(), [
-            'twig.path' => $c['app.root'] . '/resources/views',
+            'twig.path'           => $c['app.root'] . '/resources/views',
             'twig.form.templates' => ['bootstrap_3_horizontal_layout.html.twig'],
         ]);
         $c->register(new ServiceControllerServiceProvider());
@@ -41,6 +42,7 @@ class ServiceProvider implements ServiceProviderInterface, BootableProviderInter
         $c->register(new SecurityServiceProvider(), ['security.firewalls' => $c['security.firewalls']]);
         $c->register(new DoctrineServiceProvider(), ['db.options' => $c['db.options']]);
         $c->register(new BernardServiceProvider(), ['app.root' => $c['app.root']]);
+        $c->register(new JmsSerializerServiceProvider(), ['serializer.cacheDir' => $c['app.root'] . '/files/cache/jms.serializer']);
 
         // Doctrine ORM
         $c['orm.mappings'] = function (Container $c) {

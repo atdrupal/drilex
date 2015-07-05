@@ -3,10 +3,9 @@
 namespace vendor_name\project_name;
 
 use Silex\Application;
-use vendor_name\project_name\traits\GetSetTrait;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\HttpFoundation\Request;
+use vendor_name\project_name\traits\GetSetTrait;
 
 class App extends Application
 {
@@ -16,15 +15,15 @@ class App extends Application
     public function __construct(array $values = [])
     {
         parent::__construct($values + ['app.root' => dirname(__DIR__)]);
-        
+
         $this->register(new ServiceProvider());
         $this->mount('/', new ControllerProvider());
     }
-    
+
     public function boot()
     {
         parent::boot();
-        
+
         // Convert json body to array structure
         #$this->before(function (Request $request) {
         #    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {

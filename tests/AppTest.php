@@ -8,6 +8,7 @@ use Bernard\QueueFactory\PersistentFactory;
 use Doctrine\Common\Cache\Cache;
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\EntityManagerInterface;
+use JMS\Serializer\SerializerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application;
 
@@ -26,6 +27,7 @@ class AppTest extends BaseTestCase
         $this->assertTrue($app->getQueueConsumer() instanceof Consumer);
         $this->assertTrue($app->getQueueFactory() instanceof PersistentFactory);
         $this->assertTrue($app->getQueueProducer() instanceof Producer);
+        $this->assertTrue($app->getSerializer() instanceof SerializerInterface);
     }
 
 }

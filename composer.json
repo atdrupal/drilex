@@ -12,6 +12,7 @@
     "doctrine/cache": "~1.4.1",
     "doctrine/orm": "~2.5.0",
     "guzzlehttp/guzzle": "~5.2.0",
+    "jms/serializer": "~1.0",
     "psr/log": "~1.0.0",
     "silex/silex": "2.0.*@dev",
     "symfony/config": "~2.7.0",
