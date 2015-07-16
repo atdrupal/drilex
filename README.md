@@ -15,7 +15,7 @@ composer install
 
 1. Start the testing server
 
-    `git@github.com:atdrupal/silex-starter.git # start the testing server`
+    `php -S localhost:8888 -t public/`
 
 2. Then you can login with your account in Drupal CMS: /user/login
 3. The entity is accessible: /node/1
