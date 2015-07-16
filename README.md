@@ -1,6 +1,8 @@
 Drilex
 ====
 
+This is a Silex-Starter project which use Drupal as backend to manage user and content.
+
 ## Install
 
 ```bash
