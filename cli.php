@@ -5,7 +5,7 @@ error_reporting(-1);
 
 use Doctrine\DBAL\Tools\Console\ConsoleRunner as DBAL;
 use Doctrine\ORM\Tools\Console\ConsoleRunner as ORM;
-use vendor_name\project_name\App;
+use atphp\drilex\App;
 
 require_once __DIR__ . '/vendor/autoload.php';
 

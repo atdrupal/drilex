@@ -1,16 +1,19 @@
 <?php
 
-namespace vendor_name\project_name;
+namespace atphp\drilex;
 
+use atphp\drilex\drupal\Drupal;
+use atphp\drilex\traits\GetSetTrait;
 use Silex\Application;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler;
-use vendor_name\project_name\traits\GetSetTrait;
 
 class App extends Application
 {
 
     use GetSetTrait;
+
+    private $drupal;
 
     public function __construct(array $values = [])
     {
@@ -18,6 +21,26 @@ class App extends Application
 
         $this->register(new ServiceProvider());
         $this->mount('/', new ControllerProvider());
+    }
+
+    public function drupal()
+    {
+        if (null === $this->drupal) {
+            $this->drupal = new Drupal(
+                $this['drupal']['root'],
+                $this['drupal']['site_dir'],
+                $this['drupal']['base_url'],
+                $this['drupal']['settings']
+            );
+            $this->drupal->boot();
+        }
+
+        return $this->drupal;
+    }
+
+    public function getUser()
+    {
+        return $this->drupal()->getUser();
     }
 
     public function boot()

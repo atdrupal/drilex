@@ -1,8 +1,16 @@
 {% extends 'pages/base.twig' %}
 
+{% block head_title %}
+  {% if head_title is defined %}
+    {{ head_title ~ ' | ' }}
+  {% endif %}
+
+  {{ parent() }}
+{% endblock %}
+
 {% block head_stylesheet %}
   {{ parent() }}
-  
+
   {% if app.site_theme is defined %}
     <link href="{{ app.site_theme }}" rel="stylesheet" media="screen">
   {% endif %}
@@ -12,7 +20,7 @@
 
 {% block head_script %}
   {{ parent() }}
-  
+
   <script src="/js/app.js"></script>
 {% endblock %}
 

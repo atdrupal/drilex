@@ -1,8 +1,8 @@
 {
-  "name": "vendor-name/project-name",
+  "name": "atphp/drilex",
   "autoload": {
     "psr-4": {
-      "vendor_name\\project_name\\": "src"
+      "atphp\\drilex\\": "src"
     }
   },
   "require": {

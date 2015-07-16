@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\queue;
+namespace atphp\drilex\queue;
 
 use Bernard\Router;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

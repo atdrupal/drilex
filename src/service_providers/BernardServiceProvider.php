@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\service_providers;
+namespace atphp\drilex\service_providers;
 
 use Bernard\Driver\FlatFileDriver;
 use Bernard\Middleware\MiddlewareBuilder;
@@ -14,7 +14,7 @@ use Normalt\Normalizer\AggregateNormalizer;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use vendor_name\project_name\queue\Consumer;
+use atphp\drilex\queue\Consumer;
 
 class BernardServiceProvider implements ServiceProviderInterface
 {

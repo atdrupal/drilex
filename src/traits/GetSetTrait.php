@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\traits;
+namespace atphp\drilex\traits;
 
 use Bernard\Producer;
 use Bernard\QueueFactory\PersistentFactory;
@@ -15,7 +15,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\Console\Application as Console;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use vendor_name\project_name\queue\Consumer;
+use atphp\drilex\queue\Consumer;
 
 trait GetSetTrait
 {
@@ -81,7 +81,7 @@ trait GetSetTrait
     public function getConsole()
     {
         if (!isset($this['console']) || (null === $this['console'])) {
-            $name = isset($this['site_name']) ? $this['site_name'] : 'Vendor Name';
+            $name = isset($this['site_name']) ? $this['site_name'] : '@PHP';
             $version = isset($this['site_version']) ? $this['site_version'] : 'dev';
             $this['console'] = new Console($name, $version);
         }

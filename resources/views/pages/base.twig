@@ -10,7 +10,8 @@
   {% endblock %}
 
   {% block head_stylesheet %}
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"
+          media="screen">
   {% endblock %}
 
   {% block head_favicons %}
@@ -60,7 +61,9 @@
 
           <ul class="nav navbar-nav navbar-right">
             {% block navbar_right_links %}
-              {% if app.user %}
+              {% set user = app.getUser() %}
+
+              {% if user.uid %}
                 <li><a href="{{ url('user-logout') }}">Logout</a></li>
               {% else %}
                 <li><a href="{{ url('user-login') }}">Login</a></li>

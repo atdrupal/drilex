@@ -1,8 +1,8 @@
 <?php
 
-namespace vendor_name\project_name\test_cases;
+namespace atphp\drilex\test_cases;
 
-use vendor_name\project_name\App;
+use atphp\drilex\App;
 
 abstract class BaseTestCase extends \PHPUnit_Framework_TestCase
 {

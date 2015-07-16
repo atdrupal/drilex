@@ -11,7 +11,7 @@
          syntaxCheck="false"
          bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Project Name Test Suite">
+        <testsuite name="Drilex Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

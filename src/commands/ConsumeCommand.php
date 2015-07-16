@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\commands;
+namespace atphp\drilex\commands;
 
 use Bernard\Event\RejectEnvelopeEvent;
 use Bernard\Message\DefaultMessage;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use vendor_name\project_name\App;
+use atphp\drilex\App;
 
 class ConsumeCommand extends Command
 {
@@ -19,7 +19,7 @@ class ConsumeCommand extends Command
     public function __construct(App $app)
     {
         $this->app = $app;
-        parent::__construct('project-name:consume');
+        parent::__construct('drilex:consume');
     }
 
     protected function configure()

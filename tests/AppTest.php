@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\test_cases;
+namespace atphp\drilex\test_cases;
 
 use Bernard\Consumer;
 use Bernard\Producer;

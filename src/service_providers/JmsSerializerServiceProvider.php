@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor_name\project_name\service_providers;
+namespace atphp\drilex\service_providers;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;

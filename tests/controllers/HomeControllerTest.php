@@ -1,9 +1,9 @@
 <?php
 
-namespace vendor_name\project_name\test_cases\controllers;
+namespace atphp\drilex\test_cases\controllers;
 
 use Symfony\Component\HttpFoundation\Request;
-use vendor_name\project_name\test_cases\BaseTestCase;
+use atphp\drilex\test_cases\BaseTestCase;
 
 class HomeControllerTest extends BaseTestCase
 {
@@ -12,7 +12,7 @@ class HomeControllerTest extends BaseTestCase
     {
         $app = $this->getApplication();
         $response = $app->handle(Request::create('/'));
-        $this->assertContains('Welcome to <strong>Project Name</strong>!', $response->getContent());
+        $this->assertContains('Welcome to <strong>Drilex</strong>!', $response->getContent());
     }
 
 }

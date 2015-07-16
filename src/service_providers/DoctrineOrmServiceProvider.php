@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor_name\project_name\service_providers;
+namespace atphp\drilex\service_providers;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use vendor_name\project_name\App;
+use atphp\drilex\App;
 
 class DoctrineOrmServiceProvider implements ServiceProviderInterface
 {

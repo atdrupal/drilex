@@ -1,7 +1,10 @@
 <?php
 
-namespace vendor_name\project_name;
+namespace atphp\drilex;
 
+use atphp\drilex\service_providers\BernardServiceProvider;
+use atphp\drilex\service_providers\DoctrineOrmServiceProvider;
+use atphp\drilex\service_providers\JmsSerializerServiceProvider;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Silex\Api\BootableProviderInterface;
@@ -14,17 +17,14 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use vendor_name\project_name\service_providers\BernardServiceProvider;
-use vendor_name\project_name\service_providers\DoctrineOrmServiceProvider;
-use vendor_name\project_name\service_providers\JmsSerializerServiceProvider;
 
 class ServiceProvider implements ServiceProviderInterface, BootableProviderInterface, EventListenerProviderInterface
 {
 
-    protected $controllers = ['ctr.home'];
+    protected $controllers = ['ctr.home', 'ctr.drupal'];
     protected $commands    = ['command.consume'];
     protected $ormMappings = [
-        'vendor_name\\project_name\\entity' => '[%app.root]/src/models',
+        'atphp\\drilex\\entity' => '[%app.root]/src/models',
     ];
 
     /**
@@ -65,7 +65,7 @@ class ServiceProvider implements ServiceProviderInterface, BootableProviderInter
         // Define controller services
         foreach ($this->controllers as $service) {
             $c[$service] = function (Container $c) use ($service) {
-                // Change class name from ctr.home to -> \vendor_name\project_name\controllers\HomeController
+                // Change class name from ctr.home to -> \atphp\drilex\controllers\HomeController
                 $class = str_replace(['ctr.', '.'], ['', ' '], $service);
                 $class = __NAMESPACE__ . '\\controllers\\' . str_replace(' ', '', ucwords($class)) . 'Controller';
                 return new $class($c);
@@ -75,7 +75,7 @@ class ServiceProvider implements ServiceProviderInterface, BootableProviderInter
         // Define command services
         foreach ($this->commands as $service) {
             $c[$service] = function (Container $c) use ($service) {
-                // Change class name from command.consume to -> \vendor_name\project_name\commands\ConsumeCommand
+                // Change class name from command.consume to -> \atphp\drilex\commands\ConsumeCommand
                 $class = str_replace(['command.', '.'], ['', ' '], $service);
                 $class = __NAMESPACE__ . '\\commands\\' . str_replace(' ', '', ucwords($class)) . 'Command';
                 return new $class($c);
