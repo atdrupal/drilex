@@ -26,12 +26,7 @@ class ControllerProvider implements ControllerProviderInterface
         $route->get('/user/password', 'ctr.drupal:action')->method('GET|POST')->bind('user-password');
         $route->get('/user/logout', 'ctr.drupal:actionGetLogout')->method('GET')->bind('user-logout');
         $route->match('/user/{uid}/edit', 'ctr.drupal:action')->method('GET|POST')->bind('user-edit');
-
         $route->get('/{type}/{id}', 'ctr.drupal:actionGetEntity')->bind('drupal-entity');
-        $route->get('/drupal/{type}/{id}', function ($type, $id) use ($app) {
-            $entity = $app->drupal()->loadEntity($type, $id);
-            return $app->json($entity);
-        });
 
         return $route;
     }
