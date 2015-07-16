@@ -7,6 +7,7 @@ This is a Silex-Starter project which use Drupal as backend to manage user and c
 
 ```bash
 git clone git@github.com:atdrupal/drilex.git drilex
+cd drilex
 composer install
 # Update config.php to include Drupal connection params
 ```
