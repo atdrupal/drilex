@@ -1,7 +1,7 @@
 Drilex [![License](https://poser.pugx.org/atphp/drilex/license.png)](https://packagist.org/packages/atphp/drilex)
 ====
 
-This is a Silex-Starter project which use Drupal as backend to manage user and content.
+Drilex is a Silex starter project which use Drupal as backend to manage user and content. This is being developed, not ready for production yet.
 
 ## Install
 
