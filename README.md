@@ -13,7 +13,8 @@ composer install
 
 1. Start the testing server
 
-`git@github.com:atdrupal/silex-starter.git # start the testing server`
+    `git@github.com:atdrupal/silex-starter.git # start the testing server`
 
-- Then you can login with your account in Drupal CMS: /user/login
-- The entity is accessible: /node/1
+2. Then you can login with your account in Drupal CMS: /user/login
+3. The entity is accessible: /node/1
+4. Logout: /user/logout
