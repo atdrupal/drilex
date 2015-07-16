@@ -1,5 +1,6 @@
 {
   "name": "atphp/drilex",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "atphp\\drilex\\": "src"
