@@ -3,39 +3,42 @@
 namespace atphp\drilex\controllers;
 
 use atphp\drilex\App;
+use atphp\drilex\drupal\Drupal;
+use Pimple\Container;
 use Symfony\Component\HttpFoundation\Request;
 
 class DrupalController
 {
 
-    /** @var App */
-    private $app;
+    /** @var Drupal */
+    private $drupal;
 
-    public function __construct(App $app)
+    /** @var  string */
+    private $template = '/pages/drupal.twig';
+
+    public function __construct(Container $c)
     {
-        $this->app = $app;
+        $this->drupal = $c['drupal'];
+        $this->drupal->boot();
+    }
+
+    /**
+     * @param string $template
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
     }
 
     public function action(Request $request)
     {
-        $path = trim($request->getRequestUri(), '/') ?: '<front>';
-        $response = $this->app->drupal()->handle($path);
+        $response = $this->drupal->handle($request);
 
-        return $this->app->getTwig()->render('/pages/drupal.twig', [
+        return $this->drupal->getTwig()->render($this->template, [
             'head_title' => $response->getTitle(),
             'content'    => $response->getContent(),
             'messages'   => $response->getMessages()
         ]);
-    }
-
-    public function actionGetEntity($type, $id)
-    {
-        return $this->action(Request::create("{$type}/{$id}"));
-    }
-
-    public function actionGetHome()
-    {
-        return $this->action(Request::create('node/1'));
     }
 
     public function actionGetLogout()
@@ -44,6 +47,11 @@ class DrupalController
         session_destroy();
 
         return $return;
+    }
+
+    public function actionGetEntity($type, $id)
+    {
+        return $this->action(Request::create("{$type}/{$id}"));
     }
 
 }
