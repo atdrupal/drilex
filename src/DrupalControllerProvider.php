@@ -6,7 +6,7 @@ use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
 
-class ControllerProvider implements ControllerProviderInterface
+class DrupalControllerProvider implements ControllerProviderInterface
 {
 
     /**
