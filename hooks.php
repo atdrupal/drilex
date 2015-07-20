@@ -48,11 +48,11 @@ function node_init()
 }
 
 /**
- * Implements hook_exit.
+ * Implements hook_exit().
  *
  * @param string $destination
  */
 function system_exit($destination)
 {
-    return drilex_dispatcher()->dispatch('exit', drilex_event(['destination' => $destination]));
+    drilex_dispatcher()->dispatch('exit', drilex_event(['destination' => $destination]));
 }
