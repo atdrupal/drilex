@@ -15,10 +15,19 @@ class DrupalServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $c)
     {
-        $c['drupal'] = function ($root, $siteDir, $baseUrl, array $settings = []) {
-            $drupal = new Drupal($root, $siteDir, $settings);
+        $c['drupal'] = function (Container $c) {
+            $root = $c['drupal.options']['root'];
+            $siteDir = $c['drupal.options']['site_dir'];
+            $baseUrl = $c['drupal.options']['base_url'];
+            $settings = $c['drupal.options']['settings'];
+
+            $drupal = new Drupal($root, $siteDir, $baseUrl, $settings);
+
+            drilex_dispatcher($c['dispatcher']);
+            drilex_drupal($drupal);
+
             $drupal
-                ->setDrupalCache($c['cache'])
+                // ->setDrupalCache($c['cache'])
                 ->setTwig($c['twig']);
 
             return $drupal;

@@ -44,7 +44,7 @@ function drilex_dispatcher(EventDispatcherInterface $dispatcher = null)
  */
 function node_init()
 {
-    return drilex_dispatcher()->dispatch('init');
+    return drilex_dispatcher()->dispatch('drupal.init');
 }
 
 /**

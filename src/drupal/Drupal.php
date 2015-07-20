@@ -113,7 +113,7 @@ class Drupal
 
     public function getUser()
     {
-        return $GLOBALS['user'];
+        return isset($GLOBALS['user']) ? $GLOBALS['user'] : null;
     }
 
 }
