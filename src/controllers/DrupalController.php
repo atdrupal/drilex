@@ -18,7 +18,16 @@ class DrupalController
     public function __construct(Container $c)
     {
         $this->drupal = $c['drupal'];
+
+        $preHeaders = headers_list();
         $this->drupal->boot();
+
+        foreach (headers_list() as $header) {
+            if (!in_array($header, $preHeaders)) {
+                list($name,) = explode(': ', $header, 2);
+                header_remove($name);
+            }
+        }
     }
 
     /**
