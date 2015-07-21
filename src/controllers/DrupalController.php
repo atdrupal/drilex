@@ -2,7 +2,6 @@
 
 namespace atphp\drilex\controllers;
 
-use atphp\drilex\App;
 use atphp\drilex\drupal\Drupal;
 use Pimple\Container;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +10,7 @@ class DrupalController
 {
 
     /** @var Drupal */
-    private $drupal;
+    protected $drupal;
 
     /** @var  string */
     private $template = '/pages/drupal.twig';
