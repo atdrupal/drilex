@@ -4,6 +4,8 @@ use atphp\drilex\drupal\Drupal;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
+define('DRILEX_HOOK_IMPLEMENTATION', 'drilex_drupal,drilex_event,drilex_dispatcher,node_init,system_exit,system_boot,system_batch_alter,system_drupal_goto_alter,system_css_alter,system_ajax_render_alter,node_custom_theme,system_contextual_links_view_alter,user_cron,node_user_load,node_user_login,node_user_logout,system_watchdog');
+
 /**
  * @param Drupal $drupal
  * @return Drupal
@@ -119,7 +121,7 @@ function system_ajax_render_alter(&$commands)
 /**
  * Implements hook_custom_theme()
  */
-function system_custom_theme()
+function node_custom_theme()
 {
     drilex_dispatcher()->dispatch('drupal.custom_theme', drilex_event());
 }

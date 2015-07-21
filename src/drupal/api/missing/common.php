@@ -6,7 +6,7 @@ function archiver_get_extensions() {}
 function archiver_get_info() {}
 function date_iso8601($date) {}
 function debug($data, $label = NULL, $print_r = FALSE) {}
-function drupal_access_denied() {}
+# function drupal_access_denied() {}
 function drupal_array_diff_assoc_recursive($array1, $array2) {}
 function drupal_array_nested_key_exists(array $array, array $parents) {}
 function drupal_array_set_nested_value(array &$array, array $parents, $value, $force = FALSE) {}
@@ -16,9 +16,9 @@ function drupal_check_incompatibility($v, $current_version) {}
 function drupal_cron_cleanup() {}
 function drupal_cron_run() {}
 function drupal_delete_file_if_stale($uri) {}
-function drupal_deliver_html_page($page_callback_result) {}
+# function drupal_deliver_html_page($page_callback_result) {}
 function drupal_deliver_page($page_callback_result, $default_delivery_callback = NULL) {}
-function drupal_exit($destination = NULL) {}
+# function drupal_exit($destination = NULL) {}
 function drupal_explode_tags($tags) {}
 function drupal_get_destination() {}
 function drupal_get_filetransfer_info() {}
@@ -33,7 +33,7 @@ function drupal_get_token($value = '') {}
 function drupal_get_updaters() {}
 # function drupal_goto($path = '', array $options = array(), $http_response_code = 302) {}
 function drupal_http_build_query(array $query, $parent = '') {}
-function drupal_http_header_attributes(array $attributes = array()) {}
+# function drupal_http_header_attributes(array $attributes = array()) {}
 function drupal_http_request($url, array $options = array()) {}
 function drupal_map_assoc($array, $function = NULL) {}
 function drupal_not_found() {}

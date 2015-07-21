@@ -83,6 +83,12 @@ class Drupal
             }
 
             drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+
+            $implements = &drupal_static('module_implements');
+            foreach (explode(',', DRILEX_HOOK_IMPLEMENTATION) as $fn) {
+                list($module, $hook) = explode('_', $fn, 2);
+                $implements[$hook][$module] = false;
+            }
         }
 
         return $this;
