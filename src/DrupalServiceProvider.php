@@ -19,7 +19,9 @@ class DrupalServiceProvider implements ServiceProviderInterface
             $root = $c['drupal.options']['root'];
             $siteDir = $c['drupal.options']['site_dir'];
             $baseUrl = $c['drupal.options']['base_url'];
-            $settings = $c['drupal.options']['settings'];
+            $settings = [
+                    // 'session_inc' => __DIR__ . '/session.php',
+                ] + $c['drupal.options']['settings'];
 
             $drupal = new Drupal($root, $siteDir, $baseUrl, $settings);
 

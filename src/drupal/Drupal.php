@@ -102,6 +102,9 @@ class Drupal
         $code = 200;
         $messages = drupal_set_message() ?: [];
 
+        // @TODO: Remove set cookie header.
+        // @TODO: Get correct response code
+
         switch ($output) {
             case MENU_NOT_FOUND:
                 throw new NotFoundHttpException();
